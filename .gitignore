@@ -18,3 +18,4 @@ node_modules/
 # temp files
 models/temp/
 
+*.config.js

@@ -1,34 +1,28 @@
 ﻿/*
  *  Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
  */
-
-
+var settings = require('../app.config');
 (function (appSettings) {
-    
     // Set the Azure tenant for your Office 365 Developer site.
-    appSettings.tenant = "contoso";
-    
+    appSettings.tenant = settings.tenant;
     // Configure the OAuth options to match your app.
     appSettings.oauthOptions = {
-        clientId : "<your app clientId from AAD>"
-        ,clientSecret : "<your app key from AAD>"
-        ,tenantId : "<your tenantId GUID from AAD>"
+        clientId : settings.clientId
+        ,clientSecret : settings.clientSecret
+        ,tenantId : settings.tenantId
         ,resource : "https://api.office.com/discovery/"
-
         // The redirectURL is set in AAD. For the following redirectURL  
         // "http://localhost:1337/auth/azureoauth/callback", 
         // the app needs to supply a matching middleware:
         //      app.get('/auth/azureoauth/callback', ...) 
         // to receive the auth results
     };
-    
     appSettings.resources = {
         exchange : "https://outlook.office365.com/",
         onedrive : 'https://' + appSettings.tenant + '-my.sharepoint.com/',
         sharepoint : 'https://' + appSettings.tenant + '.sharepoint.com/',
         discovery : 'https://api.office.com/discovery/'
     }
-    
     appSettings.apiEndpoints = {
         exchangeBaseUrl : "https://outlook.office365.com/api/v1.0/me",
         oneDriveBusinessBaseUrl : "https://" + appSettings.tenant + "-my.sharepoint.com/_api/v1.0/me",
@@ -36,10 +30,7 @@
         discoveryServiceBaseUrl : "https://api.office.com/discovery/v1.0/me",
         accessTokenRequestUrl : "https://login.windows.net/common/oauth2/token"
     };
-    
     appSettings.useFiddler = false;
-
-
 })(module.exports);
 
 // *********************************************************

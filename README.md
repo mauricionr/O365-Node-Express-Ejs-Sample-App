@@ -117,7 +117,7 @@ Notice that you may need to specify `secureProtocol: 'TLSv1_method'` as an addit
 get the `tunneling socket could not be established, cause=connect ECONNREFUSED` or a similar one (e.g., `ECONNRESET`) error. 
 
 <a name="get-site-lists">
-## Work with Office 365 SharePoint site lits
+## Work with Office 365 SharePoint site lists
 
 This involves a `HTTP GET` request against the SharePoint site `lists` resource 
 (`https://{tenant}.sharepoint.com/_api/web/lists`). For an Office 365 developer site
